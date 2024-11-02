@@ -33,8 +33,6 @@ static char	*read_lines(int fd, char *store_lines, char *buffer)
 			store_lines = ft_strdup("");
 		temporal_store = store_lines;
 		store_lines = ft_strjoin(temporal_store, buffer);
-		free(temporal_store);
-		temporal_store = NULL;
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
