@@ -80,7 +80,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int		fd;
 	char	*line;
@@ -98,4 +98,4 @@ int	main(void)
 	}
 	close(fd);
 	return (0);
-}
+} */
