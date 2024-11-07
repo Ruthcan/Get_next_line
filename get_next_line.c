@@ -47,7 +47,7 @@ static char	*extrac_line(char *line)
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')
 		i++;
-	if (line[i] == 0 || line[1] == 0)
+	if (line[i] == 0)
 		return (NULL);
 	store_lines = ft_substr(line, i + 1, ft_strlen(line) - i);
 	line[i + 1] = 0;
@@ -60,17 +60,15 @@ char	*get_next_line(int fd)
 	static char		*store_lines;
 	char			*line;
 
-	buffer = (char *)malloc((BUFFER_SIZE + 1));
-	if (!buffer)
-		return (NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(store_lines);
-		free(buffer);
 		store_lines = NULL;
-		buffer = NULL;
 		return (NULL);
 	}
+	buffer = (char *)malloc((BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
 	line = read_lines(fd, store_lines, buffer);
 	free(buffer);
 	buffer = NULL;
@@ -80,7 +78,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int		fd;
 	char	*line;
@@ -98,7 +96,7 @@ int	main(void)
 	}
 	close(fd);
 	return (0);
-}
+}*/
 
 /*int	main(void)
 {
